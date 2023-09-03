@@ -1,0 +1,185 @@
+
+\documentclass{article}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\graphicspath{ {./images/} }
+
+\setlength{\parskip}{0.5\baselineskip plus2pt minus2pt}
+\setlength\parindent{0pt}
+\setlength{\textheight}{9in}
+
+\title{WS3 Exam presentation}
+
+\begin{document}
+\section{Delopgave 2}
+Betragt en vektor $[a,b] \in \mathbb{R}^2$ forskellig fra nulvektoren. Givens rotation er en ortogonal transformation, som afbilleder $[a,b]$ til en vektor $[d,0] \in \mathbb{R}^2$.
+
+\subsection{}
+Brug s\ae tning 7 i afsnit 6.2 [Lay], til at bestemme $[d]$ givet $[a,b]$
+
+Let $U$ be an $m$ x $n$ matrix with orthonormal columns, and let $x, y \in \mathbb{R}^n$. Then.
+
+\begin{enumerate}
+    \item $||Ux|| = ||x||$
+    \item $(Ux) \cdot (Uy) = x \cdot y$
+    \item $(Ux) \cdot (Uy) = 0 \text{ if and only if } x \cdot y = 0$
+\end{enumerate}
+
+\begin{equation}
+    \sqrt{a^2 + b^2} = \sqrt{d^2 + 0^2} = \sqrt{d^2} = d
+\end{equation}
+
+\subsection{}
+Tjek at
+\begin{equation}
+    G =
+    \begin{bmatrix}
+        c & s \\
+        -s & c
+    \end{bmatrix}
+\end{equation}
+Hvor $c = a/\sqrt{a^2 + b^2}$ og $b/\sqrt{ a^2 + b^2 }$ er en ortogonal matrix som afbilleder $[a,b]$ til $[d,0]$.
+
+\begin{equation}
+    c \cdot s + (-s) \cdot c = 0
+\end{equation}
+
+\begin{equation}
+    \begin{array}{c}
+        \sqrt{c^2 + (-s)^2} \\\\
+        \sqrt{c^2 + s^2} \\\\
+        \sqrt{(\frac{a}{\sqrt{a^2+b^2}})^2 + (\frac{b}{\sqrt{a^2+b^2}})^2} \\\\
+        \sqrt{\frac{a^2}{a^2+b^2} + \frac{b^2}{a^2+b^2}} \\\\
+        \sqrt{\frac{a^2 + b^2}{a^2 + b^2}} \\\\
+        1
+    \end{array}
+\end{equation}
+
+\begin{equation}
+    \begin{bmatrix}
+        c & s \\
+        -s & c
+    \end{bmatrix}
+    \cdot
+    \begin{bmatrix}
+        a \\
+        b
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        a \cdot c \\
+        a \cdot (-s)
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        b \cdot s \\
+        b \cdot c
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        a \cdot c + b \cdot s \\
+        a \cdot (-s) + b \cdot c
+    \end{bmatrix}
+\end{equation}
+
+Focus on bottom and insert values
+\begin{equation}
+    a \cdot \frac{-b}{\sqrt{ a^2 + b^2 }} + b \cdot \frac{a}{\sqrt{a^2 + b^2}}
+    =
+    -\frac{ab}{\sqrt{ a^2 + b^2 }} + \frac{ab}{\sqrt{a^2 + b^2}}
+    =
+    0
+\end{equation}
+
+Focus and top and insert values
+\begin{equation}
+    \begin{array}{c}
+    a \cdot \frac{a}{\sqrt{ a^2 + b^2 }} + b \cdot \frac{b}{\sqrt{a^2 + b^2}} \\\\
+    \frac{a^2}{\sqrt{ a^2 + b^2 }} + \frac{b^2}{\sqrt{a^2 + b^2}} \\\\
+    \frac{a^2 + b^2}{\sqrt{ a^2 + b^2 }} \\\\
+    \frac{a^2 + b^2 }{\sqrt{a^2 + b^2}} \cdot \frac{\sqrt{a^2 + b^2}}{\sqrt{a^2 + b^2}} \\\\
+    \frac{(a^2 + b^2) \cdot \sqrt{a^2 + b^2}}{a^2 + b^2} \\\\
+    \sqrt{a^2 + b^2}
+    \end{array}
+\end{equation}
+
+\subsection{}
+Lad os nu betragte en vektor $x \in \mathbb{R}^m, m\geq 2$, s\aa ledes at $x_i=a$ og $x_j = b$, $i < j$. Ve beregner $c$ og $s$ som i det sidste delsp\o rsm\aa l, og lad $G(i,j,a,b)$ v\ae re en $m$ x $m$ matrix, med alle r\ae kke/s\o jle som i identitetsmatrix, bortset fra r\ae kke/s\o jle i og j, hvor vi "inds\ae tter" matrix G.
+
+\begin{equation}
+    G(i,j,a,b) =
+    \begin{bmatrix}
+        1 & 0 & 0 & 0 & 0 \\
+        0 & c & 0 & s & 0 \\
+        0 & 0 & 1 & 0 & 0 \\
+        0 & -s& 0 & c & 0 \\
+        0 & 0 & 0 & 0 & 1
+    \end{bmatrix}
+\end{equation}
+
+Tjek at $G(i,j,a,b)$ er en ortogonal matrix og at
+
+\begin{equation}
+    G(i,j,a,b)x =
+    \begin{bmatrix}
+        x_1 \\
+        \vdots \\
+        x_{i-1} \\
+        d \\
+        x_{i+1} \\
+        \vdots \\
+        x_{j-1} \\
+        0 \\
+        x_{j+1} \\
+        \vdots \\
+        x_m
+    \end{bmatrix}
+\end{equation}
+
+Hvis man tager udgangspunkt i identitetsmatrix som vi ved er ortogonal, er tre scenarier der skal kigges paa
+
+\begin{enumerate}
+    \item To u\ae ndrede s\o jler
+    \item En u\ae ndredet s\o jle og en \ae ndret
+    \item To \ae ndrede s\o jler
+\end{enumerate}
+
+\begin{equation}
+    0 \cdot 0 + \dots + c \cdot s + \dots + (-s) \cdot c + \dots + 0 \cdot 0 = 0
+\end{equation}
+
+\begin{equation}
+    \begin{array}{c}
+        x_1 \cdot 0 + \dots + x_i \cdot c + \dots + x_j \cdot s + \dots + x_m \cdot 0 \\
+        x_i \cdot c + x_j \cdot s \\
+        a \cdot c + b \cdot s \\
+        d
+    \end{array}
+\end{equation}
+
+\begin{equation}
+    x_i \cdot (-s) + x_j \cdot c = a \cdot (-s) + b \cdot c = 0
+\end{equation}
+
+\subsection{}
+Forklar, hvorfor produktet af ortogonal matricer er en ortogonal matrix. Dvs, hvis $Q_1,Q_2, \dots ,Q_k$ er ortogonale matricer, forklar hvorfor matricen $Q_1Q_2 \dots Q_k$ er ortogonal.
+
+To be orthogonal means to satisfy
+
+\begin{equation}
+    A^T = A^{-1} \implies A^TA=AA^T=I
+\end{equation}
+
+\begin{equation}
+    (M \cdot N)^T \cdot (M \cdot N) = N^T \cdot M^T \cdot M \cdot N = N^T \cdot N = I
+\end{equation}
+
+\begin{equation}
+    (M \cdot N) \cdot (M \cdot N)^T = M \cdot N \cdot N^T \cdot M^T = M \cdot M^T = I
+\end{equation}
+
+\end{document}
